@@ -17,7 +17,7 @@ const shotSchema = z.object({
 });
 const trackSchema = z.object({
   name: z.string(), kind: z.enum(['narration','music','sfx']), file: z.string(),
-  from: wholeFrame, frames: length, volume: fraction,
+  from: wholeFrame, frames: length.optional(), volume: fraction,
 });
 export const filmSchema = z.object({
   captions: z.boolean(), narration: z.boolean(), music: z.boolean(), sfx: z.boolean(),

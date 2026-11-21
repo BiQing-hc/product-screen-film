@@ -44,6 +44,13 @@ export const Root = () => <>
       ],
       "audio": [
         {
+          "name": "团队女声",
+          "kind": "narration",
+          "file": "audio/旁白.wav",
+          "from": 0,
+          "volume": 1
+        },
+        {
           "name": "操作音 · 打开",
           "kind": "sfx",
           "file": "click.wav",

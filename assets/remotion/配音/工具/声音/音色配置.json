@@ -1,0 +1,8 @@
+{
+  "reference_sha256": "ce577d58a45a4b2a72812a79671650c0dff3b697bc0495d3aaaee6d8cd02f4ca",
+  "model": "mlx-community/Qwen3-TTS-12Hz-1.7B-Base-4bit",
+  "seed": 871,
+  "temperature": 0.63,
+  "top_p": 0.85,
+  "reference_text": "大象超充，把河南重卡充电站的选址规划放在一张图上。哪些点已经踏勘，哪些准备投资，沿线又有哪些充电站，都能按场景查看。"
+}
