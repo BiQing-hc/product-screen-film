@@ -1,0 +1,4 @@
+interface:
+  display_name: "真实系统宣传片"
+  short_description: "从大纲、真实录屏和统一旁白，在 Remotion Studio 制作、改片并交接"
+  default_prompt: "请用 $product-screen-film 为我的系统制作一条产品宣传片，先给我大纲和能证明各段结论的真实操作，确认后用 Remotion Studio 做成片。"

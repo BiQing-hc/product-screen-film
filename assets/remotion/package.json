@@ -1,0 +1,23 @@
+{
+  "name": "product-page-transitions",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "studio": "remotion studio index.ts",
+    "render": "node render.mjs",
+    "check": "tsc --noEmit",
+    "check:cuts": "node check-page-cuts.mjs timeline.example.json page-cuts.example.json 30",
+    "render:transitions": "remotion render index.ts PageTransitionDemo out/page-transitions.mp4"
+  },
+  "dependencies": {
+    "@remotion/cli": "4.0.484",
+    "react": "19.2.7",
+    "react-dom": "19.2.7",
+    "remotion": "4.0.484",
+    "zod": "4.3.6"
+  },
+  "devDependencies": {
+    "@types/react": "19.2.17",
+    "typescript": "6.0.3"
+  }
+}

@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="zh-CN">
+<meta charset="utf-8">
+<title>设备工单 · 录屏练习</title>
+<style>
+* {box-sizing:border-box} body {margin:0;color:#182c2c;background:#f2f4f1;font:22px/1.55 system-ui,"PingFang SC","Microsoft YaHei",sans-serif}
+header, main {padding:22px 7vw} header {display:flex;align-items:center;gap:36px;background:#123c3a;color:white} header strong {margin-right:auto;font-size:24px}
+header small {color:#b6d4cd} button {font:inherit;cursor:pointer;padding:8px 21px;border:1px solid #a9bcb8;border-radius:6px;background:white;color:#154944} button:focus-visible {outline:3px solid #1d856e}
+header button {color:white;background:transparent;border-color:#5c817c} main {max-width:1600px;margin:auto} h1 {font-size:52px;margin:42px 0 8px} h2 {font-size:28px;margin:0 0 12px}
+section {margin-top:28px;padding:30px 34px;background:white;border:1px solid #d3dcd8;border-radius:9px}
+table {width:100%;border-collapse:collapse;text-align:left} th,td {padding:18px 10px;border-bottom:1px solid #dde5e0} th {color:#506965;font-size:17px}
+em {display:inline-block;font-style:normal;padding:2px 13px;border-radius:20px;background:#e4efe9;color:#225d45} .primary {background:#176b59;color:white;border:0}
+.row {display:flex;align-items:center;gap:24px}.row h2 {margin-right:auto} .muted {color:#526964}.stat {font-size:44px;font-weight:650;color:#165d4b}
+</style>
+<header><strong>设备运维</strong><small>虚构数据 · 录屏练习</small><button id="orders">工单</button><button id="overview">运行总览</button></header>
+<main id="view"></main>
+<script>
+let dispatched = false;
+const view = document.querySelector('#view');
+const state = () => dispatched ? '已派单' : '待派单';
+const heading = (title, sub) => '<h1>'+title+'</h1><div class="muted">'+sub+'</div>';
+function list() {
+ view.innerHTML = heading('工单列表','查看待处理项目，进入工单选择班组。')+
+ '<section><table><tr><th>工单</th><th>设备</th><th>事项</th><th>状态</th><th></th></tr><tr><td>WX-021</td><td>冷却泵 02</td><td>巡检发现异常振动</td><td><em>'+state()+'</em></td><td><button id="detail">查看工单</button></td></tr><tr><td>WX-018</td><td>回风机 01</td><td>清洗滤网</td><td>已完成</td><td></td></tr></table></section>';
+ document.querySelector('#detail').onclick=detail;
+}
+function detail() {
+ view.innerHTML = heading('冷却泵 02','工单 WX-021　/　巡检发现异常振动')+
+ '<section><div class="row"><h2>维修派单</h2><em>'+state()+'</em></div><p>处理班组　<strong>'+(dispatched?'机修一组':'尚未指派')+'</strong></p>'+
+ (dispatched?'<p>处理记录　工单已转交机修一组。</p>':'<button id="dispatch" class="primary">派给机修一组</button>')+'</section>';
+ if (!dispatched) document.querySelector('#dispatch').onclick=()=>{dispatched=true;detail()};
+}
+function overview() {
+ view.innerHTML=heading('运行总览','今日工单处理情况')+
+ '<section class="row"><h2>待派单</h2><span class="stat">'+(dispatched?0:1)+'</span></section><section class="row"><h2>已派单</h2><span class="stat">'+(dispatched?1:0)+'</span></section><section><button id="report">查看处理记录</button></section>';
+ document.querySelector('#report').onclick=()=>{view.innerHTML=heading('处理记录','设备运维　/　今日')+'<section><h2>WX-021　冷却泵 02</h2><p>当前状态　'+state()+'</p><p>处理班组　'+(dispatched?'机修一组':'尚未指派')+'</p></section>'};
+}
+document.querySelector('#orders').onclick=list;document.querySelector('#overview').onclick=overview;list();
+</script>
+</html>

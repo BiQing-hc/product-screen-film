@@ -1,0 +1,17 @@
+[
+  {
+    "id": "file",
+    "start": 0,
+    "frames": 138
+  },
+  {
+    "id": "province",
+    "start": 138,
+    "frames": 141
+  },
+  {
+    "id": "decision",
+    "start": 279,
+    "frames": 133
+  }
+]
